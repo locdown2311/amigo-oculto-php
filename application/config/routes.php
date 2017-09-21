@@ -58,4 +58,5 @@ $route['sorteio'] = 'pages/sortear';
 $route['cadastrado'] = 'pages/set_par';
 $route['sortear'] = 'pages/efetuaSort';
 $route['resultados'] = 'pages/ver_res';
+$route['blog'] = 'pages/load_blog';
 

@@ -9,6 +9,15 @@ class Pages extends CI_Controller {
         
     }
 
+    public function load_blog(){
+        $this->load->model('blog_model');
+        $dados['blog'] = $this->blog_model->get_post();
+        
+        $data['titulo'] = 'Blog - AMIGO OCULTO';
+        $this->load->view('templates/headerblog',$data);
+        $this->load->view('pages/blog',$dados);
+    }
+
     public function index() {
         
         $data['titulo'] = 'Inicio - AMIGO OCULTO';
@@ -44,9 +53,6 @@ class Pages extends CI_Controller {
     public function set_par(){
         $data['titulo'] = 'Cadastro - AMIGO OCULTO';
         $query = $this->amigooculto_model->ins_nomes();
-        if($query){
-            echo "<script> alert('Cadastrado com sucesso') </script>";
-        }
         $this->load->view('templates/headernovo', $data);
         $this->load->view('pages/cadastro');
         $this->load->view('templates/footernovo');

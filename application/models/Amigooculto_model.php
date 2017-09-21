@@ -58,22 +58,23 @@ class Amigooculto_model extends CI_Model {
     }
 
     public function ins_nomes() {
-        try {
-            $dados = array(
-                'nome' => strtoupper($this->input->post('pessoa')),
-            );
-        } catch (Exception $ex) {
-            echo $ex;
-        }
 
-        return $this->db->insert('amigooculto', $dados);
+        $dados = array(
+            'nome' => strtoupper($this->input->post('pessoa')),
+        );
+        if ($this->db->insert('amigooculto', $dados)) {
+            echo "<script> alert('Cadastrado com sucesso') </script>"; 
+        }else{
+            echo "<script> alert('Usuário ja existente') </script>"; 
+        }
     }
-    public function resultados(){
-        try{
+
+    public function resultados() {
+        try {
             $query = $this->db->query('SELECT nome , segredo FROM amigooculto');
             return $query->result_array();
         } catch (Exception $ex) {
-
+            
         }
     }
 

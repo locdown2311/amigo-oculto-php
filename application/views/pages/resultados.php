@@ -1,5 +1,11 @@
+<script>
+    setInterval(function () {
+        $('#amigooculto').load(<?= base_url('resultados') ; ?>);
+    }, 2000) /* time in milliseconds (ie 2 seconds)*/
+
+</script>
 <div class="row">
-    <div class="medium-6 columns medium-centered">
+    <div id="amigooculto" class="medium-6 columns medium-centered">
         <fieldset>
             <legend>Resultados do amigo oculto da família</legend>
             <table>
